@@ -1,106 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Night City</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <style type="text/css">  
-             body {
-                font-family: 'Roboto', sans-serif;
-            }
-            .page-bg {
-                background: url(assets/images/background.jpg);
-                 filter: contrast(150%) ;
-                 position: fixed;
-                 width: 100%;
-                 height: 150%;
-                 top: -30px;
-                 left: 0;
-                 z-index: -1;
-            }
-            .page-bg-f {
-                background-color: rgba(58, 110, 206, 0.2);
-                 mix-blend-mode:hard-light;
-                 position: fixed;
-                 width: 100%;
-                 height: 150%;
-                 top: -30px;
-                 left: 0;
-                 z-index: -1;
-            }
-           .menu li {
-                float: left;
-                font-size: 16px;
-                list-style: none; 
-            }
-            .menu {
-                 padding-left: 0; 
-                 margin: 0;
-            }
-            .menu li a {
-                text-decoration: none;
-            }
-            header {
-                padding-top: 15px;
-                margin: -10px;
-                background-color: rgba(16, 45, 99, .7);
-                height: 120px;
-                display: block;
-                position: relative;
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
-            }
-            header .menu {
-                 float: right;
-                margin-right: 150px;
-            }
-            header .menu li {
-                 padding-left: 30px;
-            }
-            header .menu li a {
-                color: rgb(255, 255, 255);
-            }
-            .jumbotron {
+    <style type="text/css">
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
 
-                margin-top: 276px;
-                margin-left: 30px;
-                text-align: center;
-                clear: both;                           
-                }                  
-           main .container a {
-                color: rgb(33, 47, 177);
-                outline: 2px solid rgb(255, 255, 255);
-                outline-offset: 8px;
-                background-color: rgb(255, 255, 255);
-                padding: 20px;         
-                text-decoration: none;
-                font-size: 43px;
-                font-weight: 900;
-                list-style: none; 
-            }
+        .page-bg {
+            background: url(assets/images/background.jpg);
+            filter: contrast(150%);
+            position: fixed;
+            width: 100%;
+            height: 150%;
+            top: -30px;
+            left: 0;
+            z-index: -1;
+        }
 
+        .page-bg-f {
+            background-color: rgba(58, 110, 206, 0.2);
+            mix-blend-mode: hard-light;
+            position: fixed;
+            width: 100%;
+            height: 150%;
+            top: -30px;
+            left: 0;
+            z-index: -1;
+        }
+
+        .menu li {
+
+            font-size: 16px;
+            list-style: none;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: row;
+            padding-left: 0;
+            margin: 0;
+            margin-left: 900px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+        }
+
+        header {
+            padding-top: 15px;
+            margin: -10px;
+            background-color: rgba(16, 45, 99, .7);
+            height: 120px;
+            display: block;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
+        }
+
+        header .menu li {
+            padding-left: 30px;
+        }
+
+        header .menu li a {
+            color: rgb(255, 255, 255);
+        }
+
+        .jumbotron {
+            display: flex;
+            margin-top: 276px;
+            margin-left: 515px;
+            text-align: center;
+            clear: both;
+        }
+
+        main .container a {
+            color: rgb(33, 47, 177);
+            outline: 2px solid rgb(255, 255, 255);
+            outline-offset: 8px;
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            text-decoration: none;
+            font-size: 43px;
+            font-weight: 900;
+            list-style: none;
+        }
     </style>
 </head>
-<body> 
-        <div class="page-bg">
-            <div class="page-bg-f"></div> 
-        </div>      
+
+<body>
+    <div class="page-bg">
+        <div class="page-bg-f"></div>
+    </div>
     <header>
-          <nav>
-              <ul class="menu">
-                  <li><a href="#"> GALLERY</a></li>
-                  <li><a href="#"> ABOUT</a></li>
-                  <li><a href="#"> CONTACT US</a></li>
-              </ul>
-             </nav>     
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="#"> GALLERY</a>
+                </li>
+                <li>
+                    <a href="#"> ABOUT</a>
+                </li>
+                <li>
+                    <a href="#"> CONTACT US</a>
+                </li>
+            </ul>
+        </nav>
     </header>
- <main>
-            <div class="jumbotron">
-                    <div class="container">
-                        <a href="#">Night City View</a>
-                    </div>
-                </div>
+    <main>
+        <div class="jumbotron">
+            <div class="container">
+                <a href="#">Night City View</a>
+            </div>
+        </div>
     </main>
 </body>
+
 </html>
