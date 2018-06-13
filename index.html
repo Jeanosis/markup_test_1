@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style type="text/css">
+        @viewport {
+            width: device-width;
+            zoom: 1.0;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
         }
@@ -15,71 +20,89 @@
         .page-bg {
             background: url(assets/images/background.jpg);
             filter: contrast(150%);
-            position: fixed;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
             width: 100%;
-            height: 150%;
-            top: -30px;
+            height: 100%;
+            top: 0px;
             left: 0;
             z-index: -1;
         }
 
-        .page-bg-f {
-            background-color: rgba(58, 110, 206, 0.2);
-            mix-blend-mode: hard-light;
-            position: fixed;
-            width: 100%;
-            height: 150%;
-            top: -30px;
-            left: 0;
-            z-index: -1;
+        @supports (mix-blend-mode: overlay) {
+
+            .page-bg-f {
+                background-color: rgba(76, 29, 185, 0.2);
+                mix-blend-mode: overlay;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: -30px;
+                left: 0;
+                z-index: -1;
+            }
+        }
+
+        @supports (mix-blend-mode: saturation) {
+
+            .page-bg-d {
+                background-color: rgba(87, 42, 190, 0.2);
+                mix-blend-mode: saturation;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: -30px;
+                left: 0;
+                z-index: -1;
+            }
         }
 
         .menu li {
-
+            padding-left: 30px;
             font-size: 16px;
             list-style: none;
         }
 
         .menu {
+            transform: translate(0%, 0%);
             display: flex;
             flex-direction: row;
+            position: absolute;
+            margin-top: -70px;
             padding-left: 0;
-            margin: 0;
-            margin-left: 900px;
+            margin-left: 910px;
         }
 
         .menu li a {
+            text-transform: uppercase;
             text-decoration: none;
+            color: rgb(255, 255, 255);
         }
 
-        header {
-            padding-top: 15px;
-            margin: -10px;
+        .head-bg {
+            margin-top: -50px;
+            margin-left: -8px;
+            margin-right: -8px;
             background-color: rgba(16, 45, 99, .7);
             height: 120px;
-            display: block;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
-        }
-
-        header .menu li {
-            padding-left: 30px;
-        }
-
-        header .menu li a {
-            color: rgb(255, 255, 255);
+            transform: skewY(3deg);
         }
 
         .jumbotron {
             display: flex;
-            margin-top: 276px;
-            margin-left: 515px;
+            position: absolute;
+            align-items: center;
+            margin-top: 322px;
+            margin-left: 528px;
             text-align: center;
             clear: both;
         }
 
-        main .container a {
-            color: rgb(33, 47, 177);
+
+
+        .container {
             outline: 2px solid rgb(255, 255, 255);
             outline-offset: 8px;
             background-color: rgb(255, 255, 255);
@@ -89,14 +112,24 @@
             font-weight: 900;
             list-style: none;
         }
+
+        .container a {
+            background: -webkit-linear-gradient(#0d46a1, #262896);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 
 <body>
     <div class="page-bg">
         <div class="page-bg-f"></div>
+        <div class="page-bg-d"></div>
     </div>
+
     <header>
+        <div class="head-bg">
+        </div>
         <nav>
             <ul class="menu">
                 <li>
@@ -109,12 +142,13 @@
                     <a href="#"> CONTACT US</a>
                 </li>
             </ul>
+
         </nav>
     </header>
     <main>
         <div class="jumbotron">
             <div class="container">
-                <a href="#">Night City View</a>
+                <a>Night City View</a>
             </div>
         </div>
     </main>
