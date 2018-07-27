@@ -8,13 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style type="text/css">
-        @viewport {
-            width: device-width;
-            zoom: 1.0;
-        }
-
         body {
             font-family: 'Roboto', sans-serif;
+            margin: 0;
+            width: 100%;
+            height: 100%;
         }
 
         .page-bg {
@@ -26,97 +24,136 @@
             background-size: cover;
             width: 100%;
             height: 100%;
+            margin: 0;
             top: 0px;
             left: 0;
-            z-index: -1;
+
         }
 
-        @supports (mix-blend-mode: overlay) {
+        @supports (mix-blend-mode: overlay) and (mix-blend-mode: saturation) {
 
             .page-bg-f {
                 background-color: rgba(76, 29, 185, 0.2);
                 mix-blend-mode: overlay;
-                position: fixed;
+                position: absolute;
                 width: 100%;
                 height: 100%;
-                top: -30px;
+                margin: 0;
+                top: 0px;
                 left: 0;
-                z-index: -1;
             }
-        }
-
-        @supports (mix-blend-mode: saturation) {
 
             .page-bg-d {
                 background-color: rgba(87, 42, 190, 0.2);
                 mix-blend-mode: saturation;
-                position: fixed;
+                position: absolute;
                 width: 100%;
                 height: 100%;
-                top: -30px;
+                margin: 0;
+                top: 0px;
                 left: 0;
-                z-index: -1;
             }
-        }
 
-        .menu li {
-            padding-left: 30px;
-            font-size: 16px;
-            list-style: none;
-        }
+            .menu li {
+                padding-left: 30px;
+                font-size: 16px;
+                list-style: none;
+            }
 
-        .menu {
-            transform: translate(0%, 0%);
-            display: flex;
-            flex-direction: row;
-            position: absolute;
-            margin-top: -70px;
-            padding-left: 0;
-            margin-left: 910px;
-        }
+            .menu {
+                transform: translate(0%, 0%);
+                top: 0%;
+                right: 10%;
+                display: flex;
+                flex-direction: row;
+                position: absolute;
 
-        .menu li a {
-            text-transform: uppercase;
-            text-decoration: none;
-            color: rgb(255, 255, 255);
-        }
+            }
 
-        .head-bg {
-            margin-top: -50px;
-            margin-left: -8px;
-            margin-right: -8px;
-            background-color: rgba(16, 45, 99, .7);
-            height: 120px;
-            transform: skewY(3deg);
-        }
+            @media screen and (max-width: 600px) {
+                html,
+                body {
+                    margin: 0;
+                }
+                nav[role="custom-dropdown"] ul {
+                    display: none;
+                    height: 100%;
+                }
+                .menu li {
+                    padding-bottom: 5px;
 
-        .jumbotron {
-            display: flex;
-            position: absolute;
-            align-items: center;
-            margin-top: 322px;
-            margin-left: 528px;
-            text-align: center;
-            clear: both;
-        }
+                    list-style: none;
+                }
+                label {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    width: 100%;
+                    margin: 0;
+                    color: rgb(255, 255, 255);
+
+                }
 
 
+                label:after {
+                    position: absolute;
+                    right: 5px;
+                    top: -10px;
+                    content: "\2261";
+                    font-size: 50px;
+                }
+                input[type=checkbox]:checked~label:after {
+                    color: rgb(255, 255, 255);
+                }
 
-        .container {
-            outline: 2px solid rgb(255, 255, 255);
-            outline-offset: 8px;
-            background-color: rgb(255, 255, 255);
-            padding: 20px;
-            text-decoration: none;
-            font-size: 43px;
-            font-weight: 900;
-            list-style: none;
-        }
+                input[type=checkbox]:checked~ul {
+                    display: block;
 
-        .container a {
-            background: -webkit-linear-gradient(#0d46a1, #262896);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+                }
+            }
+            .menu li a {
+                text-transform: uppercase;
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+            }
+
+            .head-bg {
+                background-color: rgba(16, 45, 99, .7);
+                height: 100px;
+                width: 100%;
+                margin: 0;
+                transform-origin: 100% 100%;
+                transform: skewy(3deg);
+            }
+
+            .jumbotron {
+                display: flex;
+                position: absolute;
+                align-items: center;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, 0%);
+                text-align: center;
+                clear: both;
+            }
+
+            .container {
+                outline: 2px solid rgb(255, 255, 255);
+                outline-offset: 8px;
+                background-color: rgb(255, 255, 255);
+                padding: 20px;
+                text-decoration: none;
+                font-size: 41px;
+                font-weight: 900;
+                list-style: none;
+            }
+
+            .container a {
+                background: -webkit-linear-gradient(#0d46a1, #262896);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
         }
     </style>
 </head>
@@ -130,16 +167,18 @@
     <header>
         <div class="head-bg">
         </div>
-        <nav>
+        <nav role="custom-dropdown">
+            <input type="checkbox" id="button">
+            <label for="button" onclick></label>
             <ul class="menu">
                 <li>
-                    <a href="#"> GALLERY</a>
+                    <a href="#"> gallery</a>
                 </li>
                 <li>
-                    <a href="#"> ABOUT</a>
+                    <a href="#"> about</a>
                 </li>
                 <li>
-                    <a href="#"> CONTACT US</a>
+                    <a href="#"> contact us</a>
                 </li>
             </ul>
 
